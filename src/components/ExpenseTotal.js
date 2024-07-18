@@ -5,12 +5,12 @@ const ExpenseTotal = () => {
   const { expenses } = useContext(AppContext);
 
   const totalExpenses = expenses.reduce((total, item) => {
-    return (total += item.cost);
+    return (total += item.cost * 1.07);
   }, 0);
 
   return (
     <div className="alert alert-primary">
-      <span>Expense Total ${totalExpenses} </span>
+      <span> Total: ${totalExpenses} </span>
     </div>
   );
 };

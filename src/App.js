@@ -4,6 +4,8 @@ import Budget from "./components/Budget";
 import Remaining from "./components/Remaining";
 import ExpenseTotal from "./components/ExpenseTotal";
 import ExpenseList from "./components/ExpenseList";
+import AddSavedForm from "./components/AddSaved";
+import SavedList from "./components/SavedList";
 import AddExpenseForm from "./components/AddExpense";
 import { AppProvider } from "./context/AppContext";
 
@@ -12,23 +14,33 @@ const App = () => {
     <AppProvider>
       <div className="container">
         <h1 style={{ color: "green" }} className="mt-3">
-          My Budget Planner
+          Shopping Cart Helper
         </h1>
         <div className="row mt-3">
           <div className="col-sm">
             <Budget />
           </div>
           <div className="col-sm">
-            <Remaining />
+            <ExpenseTotal />
           </div>
           <div className="col-sm">
-            <ExpenseTotal />
+            <Remaining />
           </div>
         </div>
         <h3 className="mt-3">Expenses</h3>
         <div className="row mt-3">
           <div className="col-sm">
             <ExpenseList />
+          </div>
+        </div>
+        <h3 className="mt-3">Saved</h3>
+        <div className="row mt-3">
+          <div className="col-sm">{/* <SavedList /> */}</div>
+        </div>
+        <h3 className="mt-3">Add Expense</h3>
+        <div className="mt-3">
+          <div className="col-sm">
+            <AddExpenseForm />
           </div>
         </div>
         <h3 className="mt-3">Add Expense</h3>

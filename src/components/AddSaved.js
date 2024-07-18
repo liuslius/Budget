@@ -2,7 +2,7 @@ import React, { useContext, useState } from "react";
 import { AppContext } from "../context/AppContext";
 import { v4 as uuidv4 } from "uuid";
 
-const AddExpenseForm = () => {
+const AddSavedForm = () => {
   const { dispatch } = useContext(AppContext);
 
   const [name, setName] = useState("");
@@ -10,7 +10,7 @@ const AddExpenseForm = () => {
 
   const onSubmit = (event) => {
     event.preventDefault();
-    const expense = {
+    const saved = {
       id: uuidv4(),
       name: name,
       cost: parseInt(cost),
@@ -18,8 +18,8 @@ const AddExpenseForm = () => {
     //alert("name: " + name + " cost: " + cost);
 
     dispatch({
-      type: "ADD_EXPENSE",
-      payload: expense,
+      type: "ADD_SAVED",
+      payload: saved,
     });
   };
 
@@ -67,4 +67,4 @@ const AddExpenseForm = () => {
   );
 };
 
-export default AddExpenseForm;
+export default AddSavedForm;

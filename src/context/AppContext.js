@@ -15,24 +15,45 @@ const AppReducer = (state, action) => {
         ),
       };
 
+
     case "SET_BUDGET":
       return {
         ...state,
         budget: action.payload,
       };
+    case "ADD_SAVED":
+      return {
+        ...state,
+        saved: [...state.saved, action.payload],
+      };
+
+      case "DELETE_SAVED":
+      return {
+        ...state,
+        saved: state.saved.filter(
+          (saved) => saved.id !== action.payload
+        ),
+      };
+
 
     default:
       return state;
   }
 };
 const initialState = {
-  budget: 4545,
+  budget: 85,
   expenses: [
-    { id: 12, name: "Trader Joes", cost: 150 },
-    { id: 13, name: "Costco", cost: 130 },
-    { id: 14, name: "Date night", cost: 2000 },
-    { id: 15, name: "Baby Sitting", cost: 225 },
-    { id: 16, name: "Dog food", cost: 75 },
+    { id: 12, name: "Challah", cost: 3.99 },
+    { id: 13, name: "Kale", cost: 5.02 },
+    { id: 14, name: "Papaya", cost: 2.99 },
+    { id: 15, name: "Parmesan", cost: 5.5 },
+    { id: 16, name: "Dog Treats", cost: 7.5 },
+  ],
+  saved: [
+    { id: 12, name: "bananas", cost: 1.99 },
+    { id: 13, name: "spinach", cost: 3.02 },
+    { id: 14, name: "Boo", cost: 49.99 },
+    { id: 15, name: "Gouda", cost: 6.5 },
   ],
 };
 
@@ -46,6 +67,7 @@ export const AppProvider = (props) => {
       value={{
         budget: state.budget,
         expenses: state.expenses,
+        saved: state.saved,
         dispatch,
       }}
     >
